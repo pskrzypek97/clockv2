@@ -1,0 +1,41 @@
+.quote {
+	width: 70rem;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 30rem;
+	transition: visibility 0.8s, transform 1s;
+
+	&__text {
+		width: 80%;
+
+		& > p {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__refresh {
+		margin-top: 0.8rem;
+
+		width: 2rem;
+		height: 2rem;
+
+		fill: lighten($color-black-pitch, 90%);
+		cursor: pointer;
+		transition: fill 250ms;
+
+		&:hover,
+		&:focus {
+			fill: $color-white;
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		width: 60rem;
+		margin-bottom: 0;
+	}
+}

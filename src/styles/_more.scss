@@ -1,0 +1,88 @@
+.more {
+	position: relative;
+	padding-left: 15rem;
+	padding-block: 10rem;
+	background-color: transparentize($color-white, 0.4);
+
+	display: grid;
+	row-gap: 4rem;
+	column-gap: 7rem;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+
+	grid-template-areas:
+		'timezone year'
+		'day week';
+
+	margin-top: 22.5rem;
+	transition: all 1s;
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+
+		& > :not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+
+	& > *:first-child {
+		grid-area: timezone;
+	}
+
+	& > *:nth-child(2) {
+		grid-area: day;
+	}
+
+	& > *:nth-child(3) {
+		grid-area: year;
+	}
+
+	& > *:last-child {
+		grid-area: week;
+	}
+
+	&__bar {
+		position: absolute;
+		background-color: lighten($color-black-light, 40%);
+		height: 230%;
+		width: 1px;
+		inset: -15rem -13rem;
+
+		@media only screen and (max-width: $bp-big) {
+			inset: -15rem -6rem;
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			display: none;
+		}
+	}
+
+	@supports (backdrop-filter: blur(1rem)) {
+		backdrop-filter: blur(1rem); // doesn't work on firefox :(
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		padding-inline: 4rem;
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		margin-top: 10rem;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'timezone'
+			'day'
+			'year'
+			'week';
+	}
+
+	@media only screen and (max-width: $bp-medium) and (min-width: $bp-small) {
+		margin-top: 5rem;
+	}
+}

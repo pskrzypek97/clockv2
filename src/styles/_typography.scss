@@ -1,0 +1,74 @@
+.heading-1 {
+	color: $color-white;
+	font-size: 20rem;
+	letter-spacing: -5px;
+	line-height: 1.2;
+
+	& > span {
+		font-size: 2.8rem;
+		text-transform: uppercase;
+		font-weight: $font-400;
+		letter-spacing: 0;
+	}
+}
+
+.heading-2 {
+	color: $color-white;
+	font-size: 2.4rem;
+	text-transform: uppercase;
+	letter-spacing: 4.8px;
+}
+
+.heading-3 {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: $font-400;
+	letter-spacing: 3px;
+
+	@media only screen and (max-width: $bp-small) {
+		font-size: 1.8rem;
+	}
+}
+
+.paragraph {
+	&--quote {
+		color: $color-white;
+		font-size: 1.8rem;
+
+		& + figcaption {
+			color: $color-white;
+			font-size: 1.8rem;
+			font-weight: $font-700;
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			font-size: 2.5rem;
+
+			& + figcaption {
+				font-size: 2.5rem;
+			}
+		}
+	}
+	&--clock {
+		color: $color-white;
+		font-size: 2rem;
+		text-transform: uppercase;
+		letter-spacing: 4px;
+
+		&::after {
+			content: ", it's currently";
+
+			@media only screen and (max-width: $bp-small) {
+				display: none;
+			}
+		}
+	}
+	&--more {
+		font-size: 5.6rem;
+		font-weight: $font-700;
+
+		@media only screen and (max-width: $bp-small) {
+			font-size: 3.5rem;
+		}
+	}
+}

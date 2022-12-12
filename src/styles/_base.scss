@@ -1,0 +1,118 @@
+// COLOR VARIABLES
+$color-black-pitch: #000;
+$color-black-light: #303030;
+$color-white: #fff;
+
+// FONT VARIABLES
+$font-primary: 'Inter', sans-serif;
+$font-400: 400;
+$font-700: 700;
+
+// RESPONSIVE VARIABLES
+$bp-big: 87.5em;
+$bp-medium: 68.75em;
+$bp-small: 43.75em;
+
+// ANIMATIONS
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+// PLACEHOLDER SELECTOR
+%reset-button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	background: transparent;
+
+	/* inherit font & color from ancestor */
+	color: inherit;
+	font: inherit;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+}
+
+/////////////////////////////////////////////////////
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+
+	@media only screen and (max-width: $bp-medium) {
+		font-size: 56.25%;
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		font-size: 37.5%;
+	}
+}
+
+body {
+	font-family: $font-primary;
+	line-height: 1.4;
+	overflow: hidden;
+}
+
+.container {
+	padding-top: 5rem;
+	padding-bottom: 10rem;
+	padding-inline: 15rem;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.25);
+		z-index: 0;
+	}
+
+	& > * {
+		z-index: 1000;
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		padding-inline: 5rem;
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		padding-inline: 4rem;
+	}
+}
