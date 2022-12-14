@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-// const getCorrectTimeFormat = (time) => {
-// 	return time.length === 2 ? time : time.padStart(2, '0');
-// };
+const getCorrectTimeFormat = (time: string) => {
+	return time.length === 2 ? time : time.padStart(2, '0');
+};
 
 export const useTime = () => {
-	const [hour, setHour] = useState(0);
-	const [minute, setMinute] = useState(0);
+	const [hour, setHour] = useState('00');
+	const [minute, setMinute] = useState('00');
 	const [period, setPeriod] = useState('');
 	const [icon, setIcon] = useState('');
 
@@ -32,8 +32,8 @@ export const useTime = () => {
 			setIcon('moon');
 		}
 
-		setHour(hour);
-		setMinute(minute);
+		setHour(getCorrectTimeFormat(hour.toString()));
+		setMinute(getCorrectTimeFormat(minute.toString()));
 	};
 
 	useEffect(() => {

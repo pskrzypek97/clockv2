@@ -1,6 +1,8 @@
 import { useTime } from '../hooks/useTime';
 
-const Clock = () => {
+import { TransformedData } from '../models/transformedData';
+
+const Clock = ({ clock }: { clock: TransformedData['clock'] }) => {
 	const { hour, minute, period, icon } = useTime();
 
 	return (
@@ -14,11 +16,13 @@ const Clock = () => {
 			<div className="clock__time">
 				<h1 className="heading-1">
 					{hour}:{minute}
-					<span className="clock__timezone">am</span>
+					{/* <span className="clock__timezone">am</span> */}
 				</h1>
 			</div>
 			<div className="clock__location">
-				<h2 className="heading-2">In Moncton, Canada</h2>
+				<h2 className="heading-2">
+					In {clock.city}, {clock.country}
+				</h2>
 			</div>
 		</div>
 	);

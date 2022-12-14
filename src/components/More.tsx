@@ -1,10 +1,11 @@
 import { useContext } from 'react';
+import { TransformedData } from '../models/transformedData';
 
 import { useTime } from '../hooks/useTime';
 
 import MoreContext from '../store/MoreProvider';
 
-const More = () => {
+const More = ({ more }: { more: TransformedData['more'] }) => {
 	const { isActive } = useContext(MoreContext);
 
 	const { period } = useTime();
@@ -17,19 +18,19 @@ const More = () => {
 		<section className={moreStyles}>
 			<div className="more__info">
 				<h3 className="heading-3">Current timezone</h3>
-				<p className="paragraph paragraph--more">ATM</p>
+				<p className="paragraph paragraph--more">{more.code}</p>
 			</div>
 			<div className="more__info">
 				<h3 className="heading-3">Day of the year</h3>
-				<p className="paragraph paragraph--more">212</p>
+				<p className="paragraph paragraph--more">{more.dayOfYear}</p>
 			</div>
 			<div className="more__info">
 				<h3 className="heading-3">Day of the week</h3>
-				<p className="paragraph paragraph--more">2</p>
+				<p className="paragraph paragraph--more">{more.dayOfWeek}</p>
 			</div>
 			<div className="more__info">
 				<h3 className="heading-3">Week number</h3>
-				<p className="paragraph paragraph--more">12</p>
+				<p className="paragraph paragraph--more">{more.weekNum}</p>
 			</div>
 			<div className="more__bar"></div>
 		</section>
