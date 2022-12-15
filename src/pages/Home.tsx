@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 
+import { useData } from '../hooks/useData';
+
 import MoreContext from '../store/MoreProvider';
 
 import Quote from '../components/Quote';
@@ -16,12 +18,19 @@ interface HomeProps {
 const Home = ({ clock, quote }: HomeProps) => {
 	const { isActive } = useContext(MoreContext);
 
+	const { error } = useData();
+
 	return (
 		<>
 			<Quote quote={quote} />
 			<section className={`clock ${isActive ? 'active' : ''}`}>
-				<Clock clock={clock} />
-				<ButtonMore />
+				{error && <h2 style={{ fontSize: '5rem', color: 'white' }}>{error}</h2>}
+				{!error && (
+					<>
+						<Clock clock={clock} />
+						<ButtonMore />
+					</>
+				)}
 			</section>
 		</>
 	);
